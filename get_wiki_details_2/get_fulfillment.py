@@ -22,14 +22,12 @@ def fulfill_response(event, context):
                 response_payload = intenthandlers.handle_food_generic_intent(parameters)
             elif intent_display_name == "Etiquette":
                 response_payload = intenthandlers.handle_etiquette_intent(parameters)
-            elif intent_display_name == "Religiouspractices":
-                response_payload = intenthandlers.handle_religious_practices_intent(parameters)
             elif intent_display_name == "Timings":
                 response_payload = intenthandlers.handle_time_intent(parameters)
-            elif intent_display_name == "Weather":
-                response_payload = intenthandlers.handle_weather_intent(parameters)
             elif intent_display_name == "Work Environment":
-                response_payload = intenthandlers.handle_work_environment_intent(parameters)      
+                response_payload = intenthandlers.handle_work_environment_intent(parameters)
+            elif intent_display_name == "CompanySpecific":
+                response_payload = intenthandlers.handle_company_stats(parameters)     
     
     response = {}
     response["statusCode"] = 200
