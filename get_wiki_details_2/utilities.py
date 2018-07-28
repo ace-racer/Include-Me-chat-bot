@@ -3,8 +3,14 @@ import wikipedia
 def get_wikipedia_summary(text, level=2):
         if text and level > 0:
             try:
-                wiki_summary = "Here is what I found from Wikipedia: " + wikipedia.summary(text)
-                return wiki_summary
+                wiki_summary = wikipedia.summary(text)
+                wikipage = wikipedia.page(text)
+                wikiurl = wikipage.url
+                wikititle = wikipage.title
+                wiki_main_image = ""
+                if wikipage.images:
+                    wiki_main_image = wikipage.images[0]
+                return wikiurl, wikititle, wiki_summary, wiki_main_image
             except wikipedia.exceptions.DisambiguationError as disambiguationError:
                 print("Disambiguation in Wikipedia occurred for {0}".format(text))
             except Exception as ex:
