@@ -72,7 +72,7 @@ def handle_company_stats(parameters):
 def handle_work_environment_intent(parameters):
     demonym = parameters.get("Demonym")
     country = parameters.get("geo-country")
-    work_culture = parameters.get("Workculture").lower
+    work_culture = parameters.get("Workculture").lower()
     
     if demonym is not None:
         x=demonym
