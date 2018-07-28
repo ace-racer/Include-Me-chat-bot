@@ -1,5 +1,7 @@
 import utilities
 
+KNOW_MORE = "Know More"
+
 def handle_etiquette_intent(parameters):
     demonym = parameters.get("Demonym")
     demonym = demonym.lower()
@@ -8,18 +10,39 @@ def handle_etiquette_intent(parameters):
     
     western = ("british", "american", "french")
     eastern = ("indian", "chinese", "japanese")
+    image_url = ""
+    more_url = ""
     if demonym in western:
         if parameter_two:
             text_response = "It is an acceptable practice"
+            image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Handshake_%28Workshop_Cologne_%2706%29.jpeg/220px-Handshake_%28Workshop_Cologne_%2706%29.jpeg"
+            more_url = "https://www.youtube.com/watch?v=x2dGVrOtDtw"
         else:
             text_response = "It is not an acceptable practice"
     if demonym in eastern:
         if parameter_three:
             text_response = "It is an acceptable practice"
+            image_url = "https://www.tripsavvy.com/thmb/tfN5t_RfvGpuMy2RKdD1ETc2tuo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-bow-56787ce95f9b586a9e6f2904.jpg"
+            more_url = "https://www.youtube.com/watch?v=ytmdQC6OxPU"
         else:
             text_response = "It is not an acceptable practice"
     
-    return utilities.generate_response_payload(text_response)
+    fulfillment_messages = []
+    if image_url or more_url:
+        fulfillment_message = {}
+        fulfillment_message["card"] = {}
+        fulfillment_message["card"]["title"] = text_response
+        fulfillment_message["card"]["imageUri"] = image_url
+        fulfillment_message["card"]["buttons"] = []
+        fulfillment_message["card"]["buttons"].append(
+            {
+                "text": KNOW_MORE,
+                "postback": more_url
+            }
+        )
+
+        fulfillment_messages.append(fulfillment_message)
+    return utilities.generate_response_payload(text_response, fulfillment_messages)
 
 
 def handle_food_generic_intent(parameters):
@@ -60,7 +83,20 @@ def handle_time_intent(parameters):
         response = "The normal working hours are 8:00am - 5:00pm. People very rarely work after office hours only on encountering high severity live incidents."
     elif demonym == "indian" or country == "india":
         response = "The normal working hours are 9:00am - 6:00pm. Though, people do tend to flex their working hours subject their work load and availability"
-    return utilities.generate_response_payload(response)
+    fulfillment_messages = []
+    fulfillment_message = {}
+    fulfillment_message["card"] = {}
+    fulfillment_message["card"]["title"] = response
+    fulfillment_message["card"]["buttons"] = []
+    fulfillment_message["card"]["buttons"].append(
+         {
+            "text": KNOW_MORE,
+            "postback": "https://www.youtube.com/watch?v=2Qs0EL6JWD0"
+          }
+    )
+
+    fulfillment_messages.append(fulfillment_message)
+    return utilities.generate_response_payload(response, fulfillment_messages)
 
 
 def handle_company_stats(parameters):
