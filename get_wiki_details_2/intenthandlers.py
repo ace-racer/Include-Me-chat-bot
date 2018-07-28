@@ -1,7 +1,25 @@
 import utilities
 
 def handle_etiquette_intent(parameters):
-    pass
+    demonym = parameters.get("Demonym")
+    demonym = demonym.lower()
+    parameter_two = parameters.get("Acceptablepractices_Casual")
+    parameter_three = parameters.get("Acceptablepractices_respect")
+    
+    western = ("british", "american", "french")
+    eastern = ("indian", "chinese", "japanese")
+    if demonym in western:
+        if parameter_two:
+            text_response = "It is an acceptable practice"
+        else:
+            text_response = "It is not an acceptable practice"
+    if demonym in eastern:
+        if parameter_three:
+            text_response = "It is an acceptable practice"
+        else:
+            text_response = "It is not an acceptable practice"
+    
+    return utilities.generate_response_payload(text_response)
 
 
 def handle_food_generic_intent(parameters):
