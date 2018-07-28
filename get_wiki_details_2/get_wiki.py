@@ -22,10 +22,11 @@ def get_wiki_response(event, context):
             wiki_summary = get_wikipedia_summary(wiki_search_text)
             print(wiki_summary)
     
+    response_payload = generate_response_payload(wiki_summary)
     response = {}
     response["statusCode"] = 200
     response["headers"] = { "Access-Control-Allow-Origin": "*" }
-    response["body"] = json.dumps(wiki_summary)
+    response["body"] = json.dumps(response_payload)
     response["isBase64Encoded"] = False
     return response
             
@@ -42,3 +43,9 @@ def get_wikipedia_summary(text, level=2):
                 print("An error occurred while trying to retrieve details from Wikipedia for {0}. Error details: {1}".format(text, str(ex)))
 
         return None
+
+def generate_response_payload(summary_text):
+    if summary_text:
+        response = { "fulfillmentText": "Here is what I found from Wikipedia: " + summary_text }
+        return (response)
+    return ""
