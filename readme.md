@@ -1,11 +1,11 @@
 ***IncludeMe - A Slack chatbot to answer your diversity questions without the fear of being judged!***
 
 Team members: 
-Anurag Chatterjee [LinkedIn](https://www.linkedin.com/in/anurag-chatterjee/)
-Apurv Garg [LinkedIn](https://www.linkedin.com/in/apurv-garg-49659274/)
-Kapil Shukla [LinkedIn] (https://www.linkedin.com/in/kapil-shukla-519bb47/)
-Rajiv Hemanth [LinkedIn](https://www.linkedin.com/in/rajiv-hemanth-07878411/) 
-Zaira Hossain [LinkedIn](https://www.linkedin.com/in/zaira-hossain-6454308b/)
+1. Anurag Chatterjee [LinkedIn](https://www.linkedin.com/in/anurag-chatterjee/)
+2. Apurv Garg [LinkedIn](https://www.linkedin.com/in/apurv-garg-49659274/)
+3. Kapil Shukla [LinkedIn] (https://www.linkedin.com/in/kapil-shukla-519bb47/)
+4. Rajiv Hemanth [LinkedIn](https://www.linkedin.com/in/rajiv-hemanth-07878411/) 
+5. Zaira Hossain [LinkedIn](https://www.linkedin.com/in/zaira-hossain-6454308b/)
 
 **Components and how to integrate:**
 
