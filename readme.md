@@ -1,5 +1,12 @@
 ***IncludeMe - A Slack chatbot to answer your diversity questions without the fear of being judged!***
 
+Team members: 
+Anurag Chatterjee [LinkedIn]()
+Apurv Garg [LinkedIn]()
+Kapil [LinkedIn] ()
+Rajiv Hemanth [LinkedIn]() 
+Zaira Hossain [LinkedIn](https://www.linkedin.com/in/zaira-hossain-6454308b/)
+
 **Components and how to integrate:**
 
   1. The bot is powered by Google dialog flow. Please refer [here](https://dialogflow.com/) for details. 
